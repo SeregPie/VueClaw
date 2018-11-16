@@ -2,7 +2,7 @@ import Claw from '@seregpie/claw';
 
 let claws = new Map();
 
-let VueClaw = {
+export default {
 	name: 'Claw',
 
 	bind(el, {
@@ -16,15 +16,20 @@ let VueClaw = {
 		claw.on(arg, value);
 	},
 
+	update(el, {
+		arg,
+		value,
+	}) {
+		let claw = claws.get(el);
+		claw.off(arg);
+		claw.on(arg, value);
+	},
+
 	unbind(el, {arg}) {
 		let claw = claws.get(el);
-		if (claw) {
-			claw.off(arg);
-			if (claw.isIdle) {
-				claws.delete(el);
-			}
+		claw.off(arg);
+		if (claw.isIdle) {
+			claws.delete(el);
 		}
 	},
 };
-
-export default VueClaw;
