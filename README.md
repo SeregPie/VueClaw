@@ -8,7 +8,6 @@ A wrapper for Claw.
 
 ## dependencies
 
-- [Vue](https://github.com/vuejs/vue)
 - [Claw](https://github.com/SeregPie/Claw)
 
 ## setup

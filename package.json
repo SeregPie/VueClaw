@@ -28,10 +28,10 @@
 		"prepublishOnly": "npm run build"
 	},
 	"dependencies": {
-		"@seregpie/claw": "^1.0.0"
+		"@seregpie/claw": "^2.0.0"
 	},
 	"devDependencies": {
-		"rollup": "^0.66.6",
+		"rollup": "^0.67.1",
 		"rollup-plugin-babel-minify": "^6.1.1",
 		"rollup-plugin-buble": "^0.19.4"
 	},
