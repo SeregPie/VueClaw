@@ -1,6 +1,6 @@
 import Claw from '@seregpie/claw';
 
-let claws = new Map();
+let clawInstances = new Map();
 
 export default {
 	name: 'Claw',
@@ -9,9 +9,9 @@ export default {
 		arg,
 		value,
 	}) {
-		let claw = claws.get(el);
+		let claw = clawInstances.get(el);
 		if (!claw) {
-			claws.set(el, claw = new Claw(el));
+			clawInstances.set(el, claw = new Claw(el));
 		}
 		claw.on(arg, value);
 	},
@@ -20,16 +20,16 @@ export default {
 		arg,
 		value,
 	}) {
-		let claw = claws.get(el);
+		let claw = clawInstances.get(el);
 		claw.off(arg);
 		claw.on(arg, value);
 	},
 
 	unbind(el, {arg}) {
-		let claw = claws.get(el);
+		let claw = clawInstances.get(el);
 		claw.off(arg);
 		if (claw.isIdle) {
-			claws.delete(el);
+			clawInstances.delete(el);
 		}
 	},
 };
