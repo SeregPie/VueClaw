@@ -53,3 +53,27 @@ export default {
 ```
 
 If Vue is detected, the directive will be registered automatically.
+
+## usage
+
+```vue
+<template>
+  <div
+    v-claw:pan="onPan"
+    v-claw:tap="onTap"
+  ><!--...--></div>
+</template>
+<script>
+export default {
+  methods: {
+    onPan(event) {
+      // handle pan
+    },
+    onTap(event) {
+      // handle tap
+    },
+  },
+  /*...*/
+};
+</script>
+```
