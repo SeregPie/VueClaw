@@ -1,6 +1,5 @@
-import buble from 'rollup-plugin-buble';
-import minify from 'rollup-plugin-babel-minify';
-import path from 'path';
+import {terser} from 'rollup-plugin-terser';
+import buble from '@rollup/plugin-buble';
 
 import {main} from './package.json';
 
@@ -9,16 +8,16 @@ let globals = {
 };
 
 export default {
-	input: 'src/index.js',
 	external: Object.keys(globals),
+	input: './src/index.js',
+	plugins: [
+		buble(),
+		terser(),
+	],
 	output: {
 		file: main,
 		format: 'umd',
-		name: path.basename(main, path.extname(main)),
+		name: 'VueClaw',
 		globals,
 	},
-	plugins: [
-		buble({objectAssign: 'Object.assign'}),
-		minify({comments: false}),
-	],
 };

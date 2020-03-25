@@ -15,7 +15,7 @@ A wrapper for Claw.
 ### npm
 
 ```shell
-npm install vueclaw
+npm i vue-claw
 ```
 
 ### ES module
@@ -24,7 +24,7 @@ Register the directive globally.
 
 ```javascript
 import Vue from 'vue';
-import VueClaw from 'vueclaw';
+import VueClaw from 'vue-claw';
 
 Vue.directive(VueClaw.name, VueClaw);
 ```
@@ -34,13 +34,12 @@ Vue.directive(VueClaw.name, VueClaw);
 Register the directive in the scope of a component.
 
 ```javascript
-import VueClaw from 'vueclaw';
+import VueClaw from 'vue-claw';
 
 export default {
   directives: {
     [VueClaw.name]: VueClaw,
   },
-  /*...*/
 };
 ```
 
@@ -49,10 +48,10 @@ export default {
 ```html
 <script src="https://unpkg.com/vue"></script>
 <script src="https://unpkg.com/@seregpie/claw"></script>
-<script src="https://unpkg.com/vueclaw"></script>
+<script src="https://unpkg.com/vue-claw"></script>
 ```
 
-If Vue is detected, the directive will be registered automatically.
+The directive is globally available as `VueClaw`. If Vue is detected, the directive is registered automatically.
 
 ## usage
 
@@ -73,7 +72,6 @@ export default {
       // handle tap
     },
   },
-  /*...*/
 };
 </script>
 ```
